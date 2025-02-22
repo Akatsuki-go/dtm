@@ -26,6 +26,7 @@ CREATE TABLE if not EXISTS dtm.trans_global (
   key `owner`(`owner`),
   key `status_next_cron_time` (`status`, `next_cron_time`) comment 'cron job will use this index to query trans'
 ) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4;
+
 drop table IF EXISTS dtm.trans_branch_op;
 CREATE TABLE IF NOT EXISTS dtm.trans_branch_op (
   `id` bigint(22) NOT NULL AUTO_INCREMENT,
@@ -43,6 +44,7 @@ CREATE TABLE IF NOT EXISTS dtm.trans_branch_op (
   PRIMARY KEY (`id`),
   UNIQUE KEY `gid_uniq` (`gid`, `branch_id`, `op`)
 ) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4;
+
 drop table IF EXISTS dtm.kv;
 CREATE TABLE IF NOT EXISTS dtm.kv (
   `id` bigint(22) NOT NULL AUTO_INCREMENT,
