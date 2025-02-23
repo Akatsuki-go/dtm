@@ -57,6 +57,7 @@ func Main(version *string) (*gin.Engine, *config.Type) {
 		dtmsvr.PopulateDB(false)
 	}
 	_, _ = maxprocs.Set(maxprocs.Logger(logger.Infof))
+
 	registry.WaitStoreUp()
 	app := dtmsvr.StartSvr()       // start dtmsvr api
 	go dtmsvr.CronExpiredTrans(-1) // start dtmsvr cron job
